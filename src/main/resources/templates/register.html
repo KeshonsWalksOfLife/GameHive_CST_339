@@ -3,50 +3,61 @@
 	<head>
     	<title th:text="${title}">Register</title>
 		<link rel="stylesheet" th:href="@{/css/styles.css}">
+		<link rel="stylesheet" th:href="@{/css/file.css}">
 	</head>
 	<body>
 		<div th:replace="~{fragments/navbar :: navbar}"></div>
 	
-		<h1>Register Page</h1>
-	
-		<!-- th:object binds this whole form to the registerModel 
-			we put in the Model -->
-		<form th:action="@{/register}" th:object="${registerModel}" method="post">
-			<table>
-				<tr>
-					<td><label>First Name</label></td>
-					<td><input type="text" th:field="*{firstName}"></td>
-				</tr>
-
-				<tr>
-					<td><label>Last Name</label></td>
-					<td><input type="text" th:field="*{lastName}"></td>
-				</tr>		
-				
-				<tr>
-					<td><label>Email</label></td>
-					<td><input type="text" th:field="*{email}"></td>
-				</tr>
-
-				<tr>
-					<td><label>Phone Number</label></td>
-					<td><input type="text" th:field="*{phoneNumber}"></td>
-				</tr>
-				
-				<tr>
-					<td><label>Username</label></td>
-					<td><input type="text" th:field="*{username}"></td>
-				</tr>
-
-				<tr>
-					<td><label>Password</label></td>
-					<td><input type="password" th:field="*{password}"></td>
-				</tr>
-				
-				<tr>
-					<td colspan="2"><button type="submit">Register</button></td>
-				</tr>
-			</table>
-		</form>
+		<div class="form-wrapper">
+			<div class="card form-card">
+				<h1>Register Page</h1>
+			
+				<!-- th:object binds this whole form to the registerModel 
+					we put in the Model -->
+				<form th:action="@{/register}" th:object="${registerModel}" method="post">
+					<table class="form-table">
+						<tr>
+							<td><label>First Name</label></td>
+							<td><input class="form-input" type="text" th:field="*{firstName}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}"></span></td>
+						</tr>
+		
+						<tr>
+							<td><label>Last Name</label></td>
+							<td><input class="form-input" type="text" th:field="*{lastName}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"></span></td>
+						</tr>		
+						
+						<tr>
+							<td><label>Email</label></td>
+							<td><input class="form-input" type="text" th:field="*{email}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></span></td>
+						</tr>
+		
+						<tr>
+							<td><label>Phone Number</label></td>
+							<td><input class="form-input" type="text" th:field="*{phoneNumber}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}"></span></td>
+						</tr>
+						
+						<tr>
+							<td><label>Username</label></td>
+							<td><input class="form-input" type="text" th:field="*{username}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('username')}" th:errors="*{username}"></span></td>
+						</tr>
+		
+						<tr>
+							<td><label>Password</label></td>
+							<td><input class="form-input" type="password" th:field="*{password}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></span></td>
+						</tr>
+						
+						<tr>
+							<td colspan="2" style="text-align:center;"><button type="submit" style="padding: 12px 32px;">Register</button></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
 	</body>
 </html>

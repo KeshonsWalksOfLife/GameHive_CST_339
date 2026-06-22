@@ -1,13 +1,35 @@
 package com.gcu.models;
 
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+import jakarta.validation.constraints.Size;
+
 public class RegisterModel {
 	
 	// Setting Models for registration form
+	@NotBlank(message="First name is Required")
+	@Size(max = 32, message = "First name must be at most 32 characters.")
 	private String firstName;
+	
+	@NotBlank(message="Last name is Required")
+	@Size(max = 32, message = "Last name must be at most 32 characters.")
 	private String lastName;
+	
+	@NotBlank(message="Email is Required")
+	@Email(message = "Please enter a valid email address.")
 	private String email;
+	
+	@NotBlank(message="Phone number is Required")
+	@Pattern(regexp ="^\\d{10}$" , message = "Phone number must be exactly 10 digits")
 	private String phoneNumber;
+	
+	@NotBlank(message="Username is Required")
+	@Size(min = 4, max = 32, message = "Username must be between 4 and 32 characters")
 	private String username;
+	
+	@NotBlank(message="Passwordis Required")
+	@Size(min = 6, max = 32, message = "Password must be must be between 4 and 32 characters")
 	private String password;
 	
 	// Getters 
