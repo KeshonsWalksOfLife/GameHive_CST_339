@@ -1,14 +1,52 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head>
-    <title>Register</title>
-	<link rel="stylesheet" th:href="@{/css/styles.css}">
-</head>
-<body>
+	<head>
+    	<title th:text="${title}">Register</title>
+		<link rel="stylesheet" th:href="@{/css/styles.css}">
+	</head>
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+	
+		<h1>Register Page</h1>
+	
+		<!-- th:object binds this whole form to the registerModel 
+			we put in the Model -->
+		<form th:action="@{/register}" th:object="${registerModel}" method="post">
+			<table>
+				<tr>
+					<td><label>First Name</label></td>
+					<td><input type="text" th:field="*{firstName}"></input></td>]
+				</tr>
 
-<div th:replace="~{fragments/navbar :: navbar}"></div>
+				<tr>
+					<td><label>Last Name</label></td>
+					<td><input type="text" th:field="*{lastName}"></input></td>
+				</tr>		
+				
+				<tr>
+					<td><label>Email</label></td>
+					<td><input type="text" th:field="*{email}"></input></td>]
+				</tr>
 
-<h1>Register Page</h1>
+				<tr>
+					<td><label>Phone Number</label></td>
+					<td><input type="text" th:field="*{phoneNumber}"></input></td>
+				</tr>
+				
+				<tr>
+					<td><label>Username</label></td>
+					<td><input type="text" th:field="*{username}"></input></td>]
+				</tr>
 
-</body>
+				<tr>
+					<td><label>Password</label></td>
+					<td><input type="password" th:field="*{password}"></input></td>
+				</tr>
+				
+				<tr>
+					<td colspan="2"><button type="submit">Register</button></td>
+				</tr>
+			</table>
+		</form>
+	</body>
 </html>
