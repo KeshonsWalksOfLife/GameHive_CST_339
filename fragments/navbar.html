@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<body>
+
+<nav th:fragment="navbar" class="navbar navbar-expand-lg navbar-dark"
+     style="background-color: #121218; border-bottom: 2px solid #f5c542;">
+
+    <div class="container-fluid px-4">
+
+        <!-- Logo image -->
+        <a class="navbar-brand" th:href="@{/}">
+            <img th:src="@{/images/gameHiveLogo.png}" alt="GameHive Logo" class="logo-img">
+            <span style="font-weight: bold;"><span style="color: white;">Game</span><span style="color: #f5c542;">Hive</span></span>
+        </a>
+
+        <!-- Mobile toggle -->
+        <button class="navbar-toggler" type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/register}">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" th:href="@{/login}">Login</a>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</nav>
+
+</body>
+</html>

@@ -1,0 +1,56 @@
+/* Centering Form Layout*/
+
+.form-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 80px;
+	padding:0 20px;
+}
+
+.form-card {
+	width: 100%;
+	max-width: 480px;
+	box-sizing: border-box;
+}
+
+.form-card h1 {
+	text-align: center;
+	margin-top: 0;
+	margin-bottom: 25px;
+}
+
+.form-table {
+	width: 100%;
+	border-spacing: 0 14px;
+}
+
+.form-table td:first-child {
+	width: 1%;
+	white-space: nowrap;
+	padding-right: 18px;
+	font-weight: bold;
+	vertical-align: middle;
+}
+
+.form-table td {
+	vertical-align: middle;
+}
+
+.form-table input {
+	box-sizing: border-box;
+	width: 100%;
+	margin-top: 0;
+}
+
+
+.form-table label {
+	font-weight: bold;
+	white-space: nowrap;
+}
+
+
+.error {
+	color: red;
+	font-size: 1rem;
+	font-weight: bold;
+}
