@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.gcu.models.RegisterModel;
+import com.gcu.business.RegistrationService;
 
 import jakarta.validation.Valid;
 
@@ -15,6 +16,14 @@ import jakarta.validation.Valid;
 @Controller
 public class RegisterController
 {
+	private final RegistrationService registrationService;
+	
+	// Constructor Injection
+	public RegisterController(RegistrationService registrationService)
+	{
+		this.registrationService = registrationService;
+	}
+	
 	// GET /register - Serves the form with RegisterModel 
     @GetMapping("/register")
     public String displayRegister(Model model)
@@ -31,13 +40,17 @@ public class RegisterController
     		BindingResult bindingResult,
     		Model model)
     {
+    	// If validation fails, return the user to the registration page.
     	if (bindingResult.hasErrors()) {
     		model.addAttribute("title", "Register");
     		return "register";
 		} else {
+			// If there were no validation errors, pass the registration
+			// data to the business service and return to the login screen.
+			registrationService.register(registerModel);
 			model.addAttribute("title", "Registration Successful");
 			return "login";
 		}
-    	
     }
 }
+
