@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+	<head>
+    	<title th:text="${title}">Product Creation</title>
+		<link rel="stylesheet" th:href="@{/css/styles.css}">
+		<link rel="stylesheet" th:href="@{/css/file.css}">
+	</head>
+	<body>
+		<div th:replace="~{fragments/navbar :: navbar}"></div>
+	
+		<div class="form-wrapper">
+			<div class="card form-card">
+				<h1>Enter A Product</h1>
+			
+				<!-- th:object binds this whole form to the productModel 
+					we put in the Model -->
+				<form th:action="@{/product}" th:object="${productModel}" method="post">
+					<table class="form-table">
+		
+						<tr>
+							<td><label>Product Name</label></td>
+							<td><input class="form-input" type="text" th:field="*{productName}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('productName')}" th:errors="*{productName}"></span></td>
+						</tr>		
+						
+						<tr>
+							<td><label>Category</label></td>
+							<td>
+								<select class="form-input" th:field="*{category}">
+									<option value=""> Select A Category</option>
+									<option value="Games">Games</option>
+									<option value="Console">Console</option>
+									<option value="Accessories">Accessories</option>
+								</select>
+							</td>
+							<td><span class="error" th:if="${#fields.hasErrors('category')}" th:errors="*{category}"></span></td>
+						</tr>
+		
+						<tr>
+							<td><label>Price</label></td>
+							<td><input class="form-input" type="text" th:field="*{price}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('price')}" th:errors="*{price}"></span></td>
+						</tr>
+						
+						<tr>
+							<td><label>Quantity</label></td>
+							<td><input class="form-input" type="text" th:field="*{quantity}"></td>
+							<td><span class="error" th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}"></span></td>
+						</tr>
+		
+						<tr>
+							<td><label>Status</label></td>
+							<td>
+								<select class="form-input" th:field="*{status}">
+									<option value=""> Select A Status</option>
+									<option value="Active">Active </option>
+									<option value="Decommissioned">Decomissioned</option>
+									<option value="Missing">Missing/Lost</option>
+								</select>
+							</td>
+							<td><span class="error" th:if="${#fields.hasErrors('status')}" th:errors="*{status}"></span></td>
+						</tr>
+						
+						<tr>
+							<td><label>Description</label></td>
+							<td><textarea class="form-input" th:field="*{description}" rows="3"></textarea></td>
+							<td><span class="error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span></td>
+						</tr>
+						
+						<tr>
+							<td colspan="2" style="text-align:center;"><button type="submit" style="padding: 12px 32px;">Create Product</button></td>
+						</tr>
+					</table>
+				</form>
+			</div>
+		</div>
+	</body>
+</html>
