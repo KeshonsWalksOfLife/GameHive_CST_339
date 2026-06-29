@@ -38,8 +38,6 @@ public class RegisterController
 			model.addAttribute("title", "Registration Successful");
 			return "login";
 		}
-    
-    	
     	
     }
 }

@@ -18,11 +18,9 @@ public class ProductModel {
 	@Size(message = "A category must be active")
 	private String category;
 	
-	@NotBlank(message="Enter a Price Amount")
 	@DecimalMin(value="0.01" , message = "Price must be greater than 0.00")
 	private double price;
 	
-	@NotBlank(message="Enter a Quantity Amount")
 	@Min(value = 1, message = "Quantity must be at least 1")
 	@Max(value = 999, message = "Quantity must be less than 999")
 	private int quantity;
@@ -47,7 +45,7 @@ public class ProductModel {
 		return category;
 	}
 	 
-	public int getPrice() {
+	public double getPrice() {
 		return price;
 	}
 	
@@ -61,7 +59,7 @@ public class ProductModel {
 		
 	}	
 	
-	public String getDesc() {
+	public String getDescription() {
 		return description;
 	}
 	
@@ -78,7 +76,7 @@ public class ProductModel {
 		this.category = category;
 	}
 	 
-	public void setPrice(int price) {
+	public void setPrice(double price) {
 		this.price = price;
 	}
 	
@@ -90,7 +88,7 @@ public class ProductModel {
 		this.status = status;
 	}
 	
-	public void setDesc(String description) {
+	public void setDescription(String description) {
 		this.description = description;
 	}
 }
